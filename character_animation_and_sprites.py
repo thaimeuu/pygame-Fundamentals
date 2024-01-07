@@ -119,9 +119,7 @@ while running:
         
     if jumping:
         if jump_vel >= -7:
-            negative = 1
-            if jump_vel < 0: negative = -1
-            y -= (jump_vel ** 2) / 2 * negative
+            y -= (jump_vel * abs(jump_vel)) / 2
             jump_vel -= 1
         else:
             jumping = False
