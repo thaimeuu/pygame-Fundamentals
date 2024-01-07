@@ -35,8 +35,8 @@ standing = pygame.image.load('sprite/standing.png')
 background = pygame.image.load('sprite/heaven.jpg')
 
 # Set up character
-width = 40
-height = 60
+width = 64
+height = 64
 x = 50
 y = 512 - height
 vel = 5
@@ -57,7 +57,12 @@ def drawing():
     # Insert background picture
     screen.blit(background, (0, 0))
     
+    # Uncomment for visualization but it's unnecessary
+    # pygame.draw.rect(screen, 'red', (x, y, width, height))
+    
     # Drawing walking motions
+    
+    # walkCount starts from 0 to 26, so we have to write condition like below
     if walkCount + 1 >= 27:
         walkCount = 0
         
@@ -86,11 +91,14 @@ while running:
             
     keys = pygame.key.get_pressed()
     
+    # These 3 conditions are not to confuse the program
+    # Without it, chances are you're moving right but left animations are drawn
+    # Elif is important, without it, unexpected results happen (can't explain it yet)
     if keys[pygame.K_LEFT] and x >= vel: 
         x -= vel
         left = True
         right = False
-        
+    
     elif keys[pygame.K_RIGHT] and x <= 512 - width - vel: 
         x += vel
         left = False
@@ -102,11 +110,12 @@ while running:
         walkCount = 0
         
     # set up jumping key
-    if keys[pygame.K_SPACE] and y == 512 - height:
-        jumping = True
-        left = False
-        right = False
-        walkCount = 0
+    if not jumping:
+        if keys[pygame.K_SPACE] and y == 512 - height:
+            jumping = True
+            left = False
+            right = False
+            walkCount = 0
         
     if jumping:
         if jump_vel >= -7:
