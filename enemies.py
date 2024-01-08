@@ -1,7 +1,6 @@
 # Sixth
 
 # pygame version: 2.5.2
-from shutil import move
 import pygame
 
 
