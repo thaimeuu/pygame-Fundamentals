@@ -33,7 +33,6 @@ walkLeft = [
     pygame.image.load("sprite/L8.png"),
     pygame.image.load("sprite/L9.png"),
 ]
-standing = pygame.image.load("sprite/standing.png")
 background = pygame.image.load("sprite/heaven.jpg")
 
 
