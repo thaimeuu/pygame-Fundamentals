@@ -191,14 +191,13 @@ while running:
     
     if bullet_cooldown > 0:
         bullet_cooldown += 1            
-    if bullet_cooldown == 3:
+    if bullet_cooldown == 5:
         bullet_cooldown = 0
             
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_SPACE] and bullet_cooldown == 0:
-        
-        
+        bullet_cooldown += 1
         if hero.left:
             direction = -1
         else:
