@@ -215,11 +215,12 @@ while running:
             bullets.pop(bullets.index(bullet))
         
         # Collisions when bullets hit goblin's hitbox
-        if (bullet.y + bullet.radius) >= goblin.hitbox[1] and (bullet.y - bullet.radius) <= goblin.hitbox[1] + goblin.hitbox[3]:
-            if bullet.x >= goblin.hitbox[0] and bullet.x <= goblin.hitbox[0] + goblin.hitbox[2]:
-                bullets.pop(bullets.index(bullet))
-                goblin.hit()
-                score += 1
+        if goblin.visible:
+            if (bullet.y + bullet.radius) >= goblin.hitbox[1] and (bullet.y - bullet.radius) <= goblin.hitbox[1] + goblin.hitbox[3]:
+                if bullet.x >= goblin.hitbox[0] and bullet.x <= goblin.hitbox[0] + goblin.hitbox[2]:
+                    bullets.pop(bullets.index(bullet))
+                    goblin.hit()
+                    score += 1
     
     if bullet_cooldown > 0:
         bullet_cooldown += 1            
