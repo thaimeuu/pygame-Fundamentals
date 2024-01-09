@@ -241,7 +241,7 @@ while running:
                 Projectile(
                     hero.x + hero.width // 2,
                     hero.y + hero.height // 2,
-                    "red",
+                    "orange",
                     3,
                     direction,
                 )
