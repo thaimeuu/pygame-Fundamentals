@@ -8,7 +8,7 @@ pygame.init()
 
 horizontal, vertical = (512, 512)
 screen = pygame.display.set_mode((horizontal, vertical))
-pygame.display.set_caption("seventh game: collisions and hit boxes")
+pygame.display.set_caption("eighth game: scoring and health bar")
 clock = pygame.time.Clock()
 FPS = 27
 font = pygame.font.SysFont('calibri', 30, bold=True)
